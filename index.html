@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello Nomad</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- 날씨 -->
+        <section class="weather" id="weather">
+            <div class="weather-location" id="weather-location">
+                위치 확인 중...
+            </div>
+
+            <div class="weather-info">
+                <span id="weather-temperature">--</span>
+                <span class="weather-icon" id="weather-icon">☁️</span>
+            </div>
+
+            <div class="weather-status" id="weather-status">
+                Loading...
+            </div>
+        </section>
+
+
+        <!-- 중앙 콘텐츠 -->
+        <section class="main-content">
+
+            <!-- 시계 -->
+            <div class="clock-section">
+                <h1 id="clock">00:00:00</h1>
+                <p id="date">2026년 1월 1일</p>
+            </div>
+
+
+            <!-- 로그인 / 사용자 이름 -->
+            <div class="login-section">
+
+                <!-- 로그인하지 않은 상태 -->
+                <form id="login-form" class="login-form">
+                    <input
+                        type="text"
+                        id="login-input"
+                        placeholder="이름을 입력하세요"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit">
+                        로그인
+                    </button>
+                </form>
+
+                <!-- 로그인한 상태 -->
+                <div id="greeting" class="greeting hidden">
+                    Hello <span id="username"></span>
+                </div>
+
+            </div>
+
+
+            <!-- Todo -->
+            <section class="todo-section">
+
+                <form id="todo-form" class="todo-form">
+
+                    <input
+                        type="text"
+                        id="todo-input"
+                        placeholder="새로운 할 일을 입력하세요"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button type="submit">
+                        추가
+                    </button>
+
+                </form>
+
+
+                <ul id="todo-list" class="todo-list">
+                    <!-- JavaScript로 Todo가 추가됩니다. -->
+                </ul>
+
+            </section>
+
+
+            <!-- 명언 -->
+            <section class="quote-section">
+                <p id="quote">
+                    You only live once, but if you do it right, once is enough.
+                </p>
+
+                <span id="quote-author">
+                    Mae West
+                </span>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="js/background.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/greetings.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/todo.js"></script>
+    <script src="js/weather.js"></script>
+</body>
+</html>

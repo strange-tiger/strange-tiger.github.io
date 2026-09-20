@@ -1,0 +1,1052 @@
+/* =========================
+   기본 설정
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    color: #ffffff;
+
+    background-color: #172535;
+
+    /*
+        JavaScript에서 랜덤 이미지로 변경할 수 있습니다.
+        예:
+        document.body.style.backgroundImage = `url("${image}")`;
+    */
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    overflow: hidden;
+}
+
+.hidden
+{
+    display: none;
+}
+
+/* =========================
+   배경 오버레이
+========================= */
+
+.background-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(7, 18, 31, 0.42),
+            rgba(7, 18, 31, 0.58)
+        );
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   전체 컨테이너
+========================= */
+
+.container {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   중앙 콘텐츠
+========================= */
+
+.main-content {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(90%, 720px);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =========================
+   시계
+========================= */
+
+.clock-section {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.clock-section h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.5);
+}
+
+.clock-section p {
+    margin-top: 18px;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================
+   로그인
+========================= */
+
+.login-section {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+
+.login-form {
+    display: flex;
+
+    width: min(100%, 320px);
+
+    gap: 10px;
+}
+
+.login-form input,
+.todo-form input {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 44px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 22px;
+
+    outline: none;
+
+    color: #ffffff;
+
+    background: rgba(10, 25, 40, 0.55);
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.login-form input::placeholder,
+.todo-form input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.login-form input:focus,
+.todo-form input:focus {
+    border-color: rgba(255, 255, 255, 0.75);
+
+    background: rgba(10, 25, 40, 0.7);
+}
+
+
+button {
+    height: 44px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 22px;
+
+    color: #ffffff;
+
+    background: rgba(20, 40, 60, 0.65);
+
+    backdrop-filter: blur(8px);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   인사말
+========================= */
+
+.greeting {
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+#greeting #username {
+    font-weight: 700;
+}
+
+
+/* 숨김 */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   Todo
+========================= */
+.todo-section {
+    width: min(100%, 420px);
+}
+
+
+.todo-form {
+    display: flex;
+
+    width: 100%;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Todo 목록 */
+
+.todo-list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    max-height: 230px;
+
+    overflow-y: auto;
+
+    padding-right: 3px;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border-radius: 8px;
+
+    backdrop-filter: blur(3px);
+}
+
+
+/* 스크롤바 */
+
+.todo-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+
+    border-radius: 10px;
+}
+
+
+/* Todo 하나 */
+
+.todo-item {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 6px 8px 6px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 20px;
+
+    background: rgba(10, 25, 40, 0.5);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* Todo 텍스트 */
+
+.todo-text {
+    flex: 1;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    font-size: 0.9rem;
+}
+
+
+/* 완료된 Todo */
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+
+    opacity: 0.5;
+}
+
+
+/* Todo 버튼 */
+
+.todo-actions {
+    display: flex;
+
+    gap: 5px;
+
+    margin-left: 10px;
+}
+
+.todo-actions button {
+    width: 32px;
+    height: 30px;
+
+    padding: 0;
+
+    border-radius: 15px;
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================
+   명언
+========================= */
+
+.quote-section {
+    margin-top: 35px;
+
+    padding: 12px 20px;
+
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    border-radius: 8px;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.quote-section p {
+    font-size: 0.9rem;
+
+    font-style: italic;
+
+    line-height: 1.6;
+}
+
+.quote-section span {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 0.75rem;
+
+    opacity: 0.75;
+}
+
+
+/* =========================
+   날씨
+========================= */
+
+.weather {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    min-width: 115px;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    background: rgba(15, 27, 40, 0.7);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.2);
+
+    text-align: right;
+}
+
+.weather-location {
+    margin-bottom: 5px;
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    opacity: 0.85;
+}
+
+.weather-info {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+#weather-temperature {
+    font-size: 1.25rem;
+
+    font-weight: 600;
+}
+
+.weather-icon {
+    font-size: 1rem;
+}
+
+.weather-status {
+    margin-top: 2px;
+
+    font-size: 0.7rem;
+
+    opacity: 0.75;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .main-content {
+        width: 90%;
+
+        top: 48%;
+    }
+
+    .clock-section {
+        margin-bottom: 25px;
+    }
+
+    .clock-section h1 {
+        font-size: 3.2rem;
+    }
+
+    .clock-section p {
+        margin-top: 12px;
+    }
+
+    .login-form,
+    .todo-form {
+        width: 100%;
+    }
+
+    .weather {
+        top: 12px;
+        right: 12px;
+
+        min-width: 100px;
+    }
+
+    .quote-section {
+        margin-top: 25px;
+    }
+
+}/* =========================
+   기본 설정
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    color: #ffffff;
+
+    background-color: #172535;
+
+    /*
+        JavaScript에서 랜덤 이미지로 변경할 수 있습니다.
+        예:
+        document.body.style.backgroundImage = `url("${image}")`;
+    */
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   배경 오버레이
+========================= */
+
+.background-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(7, 18, 31, 0.42),
+            rgba(7, 18, 31, 0.58)
+        );
+
+    z-index: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   전체 컨테이너
+========================= */
+
+.container {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    z-index: 1;
+}
+
+
+/* =========================
+   중앙 콘텐츠
+========================= */
+
+.main-content {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(90%, 720px);
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =========================
+   시계
+========================= */
+
+.clock-section {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+.clock-section h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+
+    font-weight: 700;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    text-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.5);
+}
+
+.clock-section p {
+    margin-top: 18px;
+
+    font-size: 0.95rem;
+
+    font-weight: 500;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================
+   로그인
+========================= */
+
+.login-section {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+
+.login-form {
+    display: flex;
+
+    width: min(100%, 320px);
+
+    gap: 10px;
+}
+
+.login-form input,
+.todo-form input {
+    flex: 1;
+
+    min-width: 0;
+
+    height: 44px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 22px;
+
+    outline: none;
+
+    color: #ffffff;
+
+    background: rgba(10, 25, 40, 0.55);
+
+    backdrop-filter: blur(8px);
+
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.login-form input::placeholder,
+.todo-form input::placeholder {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.login-form input:focus,
+.todo-form input:focus {
+    border-color: rgba(255, 255, 255, 0.75);
+
+    background: rgba(10, 25, 40, 0.7);
+}
+
+
+button {
+    height: 44px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    border-radius: 22px;
+
+    color: #ffffff;
+
+    background: rgba(20, 40, 60, 0.65);
+
+    backdrop-filter: blur(8px);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.2s;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+
+/* =========================
+   인사말
+========================= */
+
+.greeting {
+    font-size: 1.2rem;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+#greeting #username {
+    font-weight: 700;
+}
+
+
+/* 숨김 */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   Todo
+========================= */
+
+.todo-section {
+    width: min(100%, 420px);
+}
+
+
+.todo-form {
+    display: flex;
+
+    width: 100%;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Todo 목록 */
+
+.todo-list {
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    max-height: 230px;
+
+    overflow-y: auto;
+
+    padding-right: 3px;
+}
+
+
+/* 스크롤바 */
+
+.todo-list::-webkit-scrollbar {
+    width: 5px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+
+    border-radius: 10px;
+}
+
+
+/* Todo 하나 */
+
+.todo-item {
+    display: flex;
+
+    align-items: center;
+
+    min-height: 42px;
+
+    padding: 6px 8px 6px 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    border-radius: 20px;
+
+    background: rgba(10, 25, 40, 0.5);
+
+    backdrop-filter: blur(8px);
+}
+
+
+/* Todo 텍스트 */
+
+.todo-text {
+    flex: 1;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    font-size: 0.9rem;
+}
+
+
+/* 완료된 Todo */
+
+.todo-item.completed .todo-text {
+    text-decoration: line-through;
+
+    opacity: 0.5;
+}
+
+
+/* Todo 버튼 */
+
+.todo-actions {
+    display: flex;
+
+    gap: 5px;
+
+    margin-left: 10px;
+}
+
+.todo-actions button {
+    width: 32px;
+    height: 30px;
+
+    padding: 0;
+
+    border-radius: 15px;
+
+    font-size: 0.75rem;
+}
+
+
+/* =========================
+   명언
+========================= */
+
+.quote-section {
+    margin-top: 35px;
+
+    text-align: center;
+
+    opacity: 0.9;
+
+    text-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.quote-section p {
+    font-size: 0.9rem;
+
+    font-style: italic;
+
+    line-height: 1.6;
+}
+
+.quote-section span {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 0.75rem;
+
+    opacity: 0.75;
+}
+
+
+/* =========================
+   날씨
+========================= */
+
+.weather {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    min-width: 115px;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    background: rgba(15, 27, 40, 0.7);
+
+    backdrop-filter: blur(8px);
+
+    box-shadow:
+        0 5px 20px rgba(0, 0, 0, 0.2);
+
+    text-align: right;
+}
+
+.weather-location {
+    margin-bottom: 5px;
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    opacity: 0.85;
+}
+
+.weather-info {
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+#weather-temperature {
+    font-size: 1.25rem;
+
+    font-weight: 600;
+}
+
+.weather-icon {
+    font-size: 1rem;
+}
+
+.weather-status {
+    margin-top: 2px;
+
+    font-size: 0.7rem;
+
+    opacity: 0.75;
+}
+
+
+/* =========================
+   모바일
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .main-content {
+        width: 90%;
+
+        top: 48%;
+    }
+
+    .clock-section {
+        margin-bottom: 25px;
+    }
+
+    .clock-section h1 {
+        font-size: 3.2rem;
+    }
+
+    .clock-section p {
+        margin-top: 12px;
+    }
+
+    .login-form,
+    .todo-form {
+        width: 100%;
+    }
+
+    .weather {
+        top: 12px;
+        right: 12px;
+
+        min-width: 100px;
+    }
+
+    .quote-section {
+        margin-top: 25px;
+    }
+
+}
